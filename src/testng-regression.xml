@@ -1,0 +1,9 @@
+<suite name="RegressionSuite">
+    <parameter name="env" value="staging"/>
+    <parameter name="browser" value="chrome"/>
+    <test name="RegressionTests">
+        <classes>
+            <class name="tests.regression.AuthTest"/>
+        </classes>
+    </test>
+</suite>

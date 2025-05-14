@@ -1,6 +1,9 @@
 <suite name="RegressionSuite">
     <parameter name="env" value="staging"/>
     <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
     <test name="RegressionTests">
         <classes>
             <class name="tests.regression.AuthTest"/>

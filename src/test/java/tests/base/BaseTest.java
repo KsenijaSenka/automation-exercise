@@ -7,11 +7,11 @@ import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.LoggerUtil;
-import utils.ScreenshotListener;
+import utils.TestListener;
 
 import java.io.IOException;
 
-@Listeners(ScreenshotListener.class)
+@Listeners(TestListener.class)
 public class BaseTest {
 
     protected WebDriver driver;

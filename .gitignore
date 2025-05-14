@@ -40,3 +40,5 @@ build/
 /screenshots/
 .idea/
 /logs/
+.allure
+/*/allure-results/

@@ -5,11 +5,17 @@ import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
+import io.qameta.allure.*;
 
-
+@Epic("Login Tests")
+@Feature("Invalid Login")
 public class AuthTest extends BaseTest {
 
-    @Test
+
+
+    @Test(description = "Login with invalid credentials should show error message")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("User fails to login")
     public void testLoginWithInvalidCredentials() {
         String invalidEmail = EnvLoader.getProperty("user.email");
         String invalidPassword = "Wrong" + EnvLoader.getProperty("user.password");

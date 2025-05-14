@@ -2,16 +2,20 @@ package tests.smoke;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailPage;
 import pages.ProductsPage;
 import tests.base.BaseTest;
+import utils.TestListener;
 
 import static driver.DriverFactory.getDriver;
 
+@Listeners(TestListener.class)
 public class ProductDetailPageTest extends BaseTest {
     private static final Logger logger = LogManager.getLogger(ProductDetailPageTest.class);
+
     @Test
     public void verifyAllProductsAndProductDetailPage() {
         logger.info("Starting test: verifyAllProductsAndProductDetailPage");

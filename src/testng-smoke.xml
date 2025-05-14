@@ -1,6 +1,9 @@
 <suite name="SmokeSuite">
     <parameter name="env" value="test"/>
     <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
     <test name="SmokeTests">
         <classes>
             <class name="tests.smoke.ProductDetailPageTest"/>

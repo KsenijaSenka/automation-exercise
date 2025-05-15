@@ -1,0 +1,12 @@
+<suite name="FunctionalSuite">
+    <parameter name="env" value="staging"/>
+    <parameter name="browser" value="firefox"/>
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
+    <test name="FunctionalTests">
+        <classes>
+            <class name="tests.functional.TestCasesLinksTest"/>
+        </classes>
+    </test>
+</suite>

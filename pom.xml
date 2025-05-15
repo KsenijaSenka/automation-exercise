@@ -78,9 +78,7 @@
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <useFile>true</useFile>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>
                             <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-                        </suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

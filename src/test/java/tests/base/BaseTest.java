@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.TestCasesLinksPage;
+import pages.decorators.RetryTestCasesLinksPageDecorator;
 import utils.LoggerUtil;
 import utils.TestListener;
 
@@ -18,7 +20,7 @@ public class BaseTest {
 
     protected LoginPage loginPage;
     protected HomePage homePage;
-
+protected TestCasesLinksPage testCasesLinksPage;
 
     public BaseTest() {
     }
@@ -37,6 +39,8 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        testCasesLinksPage = new RetryTestCasesLinksPageDecorator(driver, 3);
+
     }
 
     @AfterClass(alwaysRun = true)

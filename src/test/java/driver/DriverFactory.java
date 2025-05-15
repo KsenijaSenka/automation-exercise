@@ -10,9 +10,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverFactory {
     private static WebDriver driver;
 
+    private DriverFactory() {
+    }
+
     public static WebDriver getDriver(String browser) {
         if (driver == null) {
-            browser = EnvLoader.getProperty("browser").toLowerCase();
+            if (browser == null || browser.isEmpty()) {
+                browser = EnvLoader.getProperty("browser");
+            }
             switch (browser.toLowerCase()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -23,8 +28,8 @@ public class DriverFactory {
                     driver = new FirefoxDriver();
                     break;
                 case "edge":
-                    WebDriverManager.edgedriver().setup(); // Add Edge support
-                    driver=new EdgeDriver();
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
                     break;
                 default:
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
@@ -34,6 +39,9 @@ public class DriverFactory {
     }
 
     public static WebDriver getDriver() {
+        if (driver == null) {
+            throw new IllegalStateException("Driver not initialized. Call getDriver(browser) first.");
+        }
         return driver;
     }
 

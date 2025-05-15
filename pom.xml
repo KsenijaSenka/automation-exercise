@@ -15,6 +15,7 @@
         <allure.version>2.29.0</allure.version>
         <allure.maven.plugin.version>2.11.2</allure.maven.plugin.version>
         <aspectj.version>1.9.22</aspectj.version>
+        <suiteXmlFile>src/testng-smoke.xml</suiteXmlFile>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -77,8 +78,9 @@
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <useFile>true</useFile>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/testng-smoke.xml</suiteXmlFile>
-                        <suiteXmlFile>src/testng-regression.xml</suiteXmlFile>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        </suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

@@ -20,7 +20,7 @@ public class BaseTest {
 
     protected LoginPage loginPage;
     protected HomePage homePage;
-protected TestCasesLinksPage testCasesLinksPage;
+    protected TestCasesLinksPage testCasesLinksPage;
 
     public BaseTest() {
     }

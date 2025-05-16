@@ -40,4 +40,8 @@ public class CartPage extends BasePage {
     public boolean hasTwoProductImages() {
         return productImages.size() == 2;
     }
+    @Override
+    public boolean isOnPage() {
+        return driver.getCurrentUrl().contains("view_cart");
+    }
 }

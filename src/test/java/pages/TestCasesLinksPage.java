@@ -16,7 +16,8 @@ public class TestCasesLinksPage extends BasePage{
     public void clickTestCasesLink() {
         testCasesLink.click();
     }
-    public boolean isOnTestCasesPage() {
+    @Override
+    public boolean isOnPage() {
         return driver.getCurrentUrl().contains("test_cases");
     }
 

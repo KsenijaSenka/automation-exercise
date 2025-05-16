@@ -15,6 +15,11 @@ public class ProductDetailPage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
+    @Override
+    public boolean isOnPage() {
+        return driver.getCurrentUrl().contains("product_details");
+    }
+
     public boolean isProductNameVisible() {
         return productName.isDisplayed();
     }

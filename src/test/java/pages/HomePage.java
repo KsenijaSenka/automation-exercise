@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +26,8 @@ public class HomePage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public boolean isHomePageVisible() {
+    @Override
+    public boolean isOnPage() {
         return signupLoginBtn.isDisplayed();
     }
 
@@ -42,8 +42,6 @@ public class HomePage extends BasePage {
     //public void clickDeleteAccount() {
       //  deleteAccountBtn.click();
     //}
-
-
 
 
 

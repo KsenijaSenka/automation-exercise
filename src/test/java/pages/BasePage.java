@@ -25,6 +25,8 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public abstract boolean isOnPage();
+
     public void scrollElementIntoView(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }

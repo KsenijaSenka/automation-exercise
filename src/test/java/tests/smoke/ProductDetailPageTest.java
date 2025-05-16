@@ -26,7 +26,7 @@ public class ProductDetailPageTest extends BaseTest {
         homePage.clickProductsButton();
 
         ProductsPage productsPage = new ProductsPage(getDriver());
-        Assert.assertTrue(productsPage.isProductsPageVisible(), "ALL PRODUCTS page is not visible");
+        Assert.assertTrue(productsPage.isOnPage(), "ALL PRODUCTS page is not visible");
 
         Assert.assertTrue(productsPage.isProductListVisible(), "Product list is not visible");
 

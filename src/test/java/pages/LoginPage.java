@@ -41,6 +41,11 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
+    @Override
+    public boolean isOnPage() {
+        return driver.getCurrentUrl().contains("login");
+    }
+
     public boolean isLoginToAccountTextVisible() {
         try {
             return loginToAccountText.isDisplayed();
@@ -56,14 +61,6 @@ public class LoginPage extends BasePage {
         }
     }
 
-
-//    public void login(String email, String password) {
-//
-//        loginEmailInput.sendKeys(email);
-//        passwordInput.sendKeys(password);
-//        waitForVisibility(loginButton);
-//        loginButton.click();
-//    }
 
     public void enterSignupDetails(String name, String email) {
         signupNameInput.sendKeys(name);

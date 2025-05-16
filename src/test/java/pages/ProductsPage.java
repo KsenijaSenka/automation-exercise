@@ -54,7 +54,8 @@ public class ProductsPage extends BasePage {
         addToCartButton.click();
     }
 
-    public boolean isProductsPageVisible() {
+    @Override
+    public boolean isOnPage() {
         return allProductsHeader.isDisplayed();
     }
 

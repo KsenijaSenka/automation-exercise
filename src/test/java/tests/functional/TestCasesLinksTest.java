@@ -16,7 +16,7 @@ public class TestCasesLinksTest extends BaseTest {
 
         LoggerUtil.info("Verifying navigation to the 'Test Cases' page");
         Assert.assertTrue(
-                testCasesLinksPage.isOnTestCasesPage(),
+                testCasesLinksPage.isOnPage(),
                 "Not navigated to the Test Cases page."
         );
         LoggerUtil.info("Test passed: testClickTestCasesLink");

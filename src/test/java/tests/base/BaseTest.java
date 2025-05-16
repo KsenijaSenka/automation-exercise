@@ -25,13 +25,13 @@ public class BaseTest {
     public BaseTest() {
     }
 
-    @Parameters({"env", "browser"})
+    @Parameters({"env"})
     @BeforeClass(alwaysRun = true)
-    public void setUp(@Optional("test") String env, @Optional("chrome") String browser) throws IOException {
-        LoggerUtil.info("Starting test setup on browser: " + browser);
+    public void setUp(@Optional("test") String env) throws IOException {
+        LoggerUtil.info("Starting test setup for environment: " + env);
         EnvLoader.load(env);
 
-        driver = DriverFactory.getDriver(browser);
+        driver = DriverFactory.getDriver();
         LoggerUtil.info("Browser launched successfully.");
         driver.get("https://www.automationexercise.com/");
 

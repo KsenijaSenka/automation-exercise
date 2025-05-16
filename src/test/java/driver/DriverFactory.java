@@ -1,46 +1,43 @@
 package driver;
 
 import config.EnvLoader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import driver.strategy.BrowserStrategy;
+import driver.strategy.ChromeStrategy;
+import driver.strategy.EdgeStrategy;
+import driver.strategy.FirefoxStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.Map;
 
 public class DriverFactory {
+
     private static WebDriver driver;
+
+    private static final Map<String, BrowserStrategy> strategies = Map.of(
+            "chrome", new ChromeStrategy(),
+            "firefox", new FirefoxStrategy(),
+            "edge", new EdgeStrategy()
+    );
 
     private DriverFactory() {
     }
 
-    public static WebDriver getDriver(String browser) {
+    public static WebDriver getDriver() {
         if (driver == null) {
+            String browser = System.getProperty("browser");
+
             if (browser == null || browser.isEmpty()) {
                 browser = EnvLoader.getProperty("browser");
             }
-            switch (browser.toLowerCase()) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                case "edge":
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unsupported browser: " + browser);
-            }
-        }
-        return driver;
-    }
 
-    public static WebDriver getDriver() {
-        if (driver == null) {
-            throw new IllegalStateException("Driver not initialized. Call getDriver(browser) first.");
+            browser = browser.toLowerCase();
+            BrowserStrategy strategy = strategies.get(browser);
+
+            if (strategy == null) {
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
+            }
+
+            driver = strategy.createDriver();
         }
         return driver;
     }

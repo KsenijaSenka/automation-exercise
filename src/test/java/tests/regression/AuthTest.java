@@ -1,6 +1,5 @@
 package tests.regression;
 
-import config.EnvLoader;
 import factory.UserFactory;
 import models.User;
 import org.testng.Assert;

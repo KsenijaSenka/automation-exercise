@@ -46,6 +46,13 @@ public class LoginSteps {
         loginPage.setEmail(email).setPassword(password);
     }
 
+    @When("User logs in with valid credentials")
+    public void user_logs_in_with_valid_credentials() {
+        String email = EnvLoader.getProperty("user.email");
+        String password = EnvLoader.getProperty("user.password");
+        loginPage.setEmail(email).setPassword(password).clickLoginButton();
+    }
+
     @And("clicks on login button")
     public void clicks_on_login_button() {
         loginPage.clickLoginButton();
@@ -56,6 +63,10 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.isLoginErrorVisible());
     }
 
+    @Then("User should be logged in successfully")
+    public void user_should_be_logged_in_successfully() {
+        Assert.assertTrue(homePage.isLoggedInAsVisible(), "User is not logged in successfully");
+    }
     @After
     public void tearDown() {
         DriverFactory.quitDriver();

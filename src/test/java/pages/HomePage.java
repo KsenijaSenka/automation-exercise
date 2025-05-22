@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,8 +11,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[text()=' Signup / Login']")
     WebElement signupLoginBtn;
 
-//    @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
-//    WebElement loggedInAs;
+    @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
+    WebElement loggedInAs;
 
 //    @FindBy(xpath = "//a[text()=' Delete Account']")
 //    WebElement deleteAccountBtn;
@@ -54,4 +55,7 @@ public class HomePage extends BasePage {
     }
 
 
+    public boolean isLoggedInAsVisible() {
+        return loggedInAs.isDisplayed();
+    }
 }

@@ -13,3 +13,9 @@ Feature: Login functionality
       | email              | password       |
       | test@example.com   | wrongpass123   |
       | user@test.com      | invalid456     |
+
+  @validLogin @regression @positive
+  Scenario: Login with environment-specific valid credentials
+    When User logs in with valid credentials
+    And clicks on login button
+    Then User should be logged in successfully
